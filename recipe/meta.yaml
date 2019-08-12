@@ -14,7 +14,7 @@ source:
 build:
   number: 1000
   # py2k needs alsa-lib-devel
-  skip: True  # [win or py2k or osx]
+  skip: True  # [py2k or osx]
   script:
     - export PORTAUDIO_PATH=$PREFIX  # [not win]
     - python setup.py install
@@ -25,19 +25,19 @@ requirements:
   host:
     - python
     - setuptools
-    - portaudio  # [not win]
+    - portaudio 
     - jack  # [linux]
   run:
     - python
     - setuptools
-    - portaudio  # [not win]
+    - portaudio 
     - jack  # [linux]
 
 test:
   imports:
     - pyaudio
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+    - conda inspect linkages -p $PREFIX $PKG_NAME
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
