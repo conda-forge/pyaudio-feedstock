@@ -12,19 +12,19 @@ source:
     - lib.patch
 
 build:
-  number: 1000
+  number: 1001
   # py2k needs alsa-lib-devel
   skip: True  # [win or py2k or osx]
   script:
     - export PORTAUDIO_PATH=$PREFIX  # [not win]
-    - python setup.py install
+    - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - python
-    - setuptools
+    - pip
     - portaudio  # [not win]
     - jack  # [linux]
   run:
@@ -43,6 +43,8 @@ test:
 about:
   home: http://people.csail.mit.edu/hubert/pyaudio/
   license: MIT
+  license_family: MIT
+  license_file: LICENSE
   summary: 'PortAudio Python Bindings.'
 
 extra:
