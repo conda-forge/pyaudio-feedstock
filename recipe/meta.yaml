@@ -12,7 +12,7 @@ source:
     - lib.patch
 
 build:
-  number: 1002
+  number: 1003
   # py2k needs alsa-lib-devel
   skip: True  # [win or py2k or osx]
   script:
@@ -37,8 +37,6 @@ test:
   imports:
     - pyaudio
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://people.csail.mit.edu/hubert/pyaudio/
