@@ -12,7 +12,7 @@ source:
     - lib.patch
 
 build:
-  number: 1004
+  number: 1005
   # py2k needs alsa-lib-devel
   skip: True  # [win or py2k or osx]
   script:
