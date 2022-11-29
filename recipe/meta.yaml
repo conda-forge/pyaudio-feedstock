@@ -9,7 +9,7 @@ source:
   sha256: 55ddf5db72bc537bba5f5dbca3ab9f0222ee5b842bda83978eab0b7b8f60fb9e
 
 build:
-  number: 0
+  number: 1
   # py2k needs alsa-lib-devel
   skip: True  # [win or py2k or osx]
   script:
