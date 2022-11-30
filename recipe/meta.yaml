@@ -11,10 +11,10 @@ source:
 build:
   number: 0
   # py2k needs alsa-lib-devel
-  skip: True  # [win or py2k or osx]
+  skip: true  # [win or py2k or osx]
   script:
     - export PORTAUDIO_PATH=$PREFIX  # [not win]
-    - "{{ PYTHON }} -m pip install . -vv"
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -40,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'PortAudio Python Bindings.'
+  summary: PortAudio Python Bindings.
 
 extra:
   recipe-maintainers:
