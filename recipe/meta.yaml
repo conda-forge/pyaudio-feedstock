@@ -1,4 +1,4 @@
-{% set version = "0.2.12" %}
+{% set version = "0.2.13" %}
 
 package:
   name: pyaudio
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/P/PyAudio/PyAudio-{{ version }}.tar.gz
-  sha256: 55ddf5db72bc537bba5f5dbca3ab9f0222ee5b842bda83978eab0b7b8f60fb9e
+  sha256: 26bccc81e4243d1c0ff5487e6b481de6329fcd65c79365c267cef38f363a2b56
 
 build:
   number: 0
