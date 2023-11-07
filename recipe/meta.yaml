@@ -10,11 +10,10 @@ source:
 
 build:
   number: 0
-  # py2k needs alsa-lib-devel
-  skip: true  # [win or py2k or osx]
+  skip: true  # [win or osx]
   script:
     - export PORTAUDIO_PATH=$PREFIX  # [not win]
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -22,6 +21,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - portaudio  # [not win]
     - jack  # [linux]
   run:
