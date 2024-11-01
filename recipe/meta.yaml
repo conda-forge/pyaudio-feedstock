@@ -9,7 +9,7 @@ source:
   sha256: 78dfff3879b4994d1f4fc6485646a57755c6ee3c19647a491f790a0895bd2f87
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win or osx]
   script:
     - export PORTAUDIO_PATH=$PREFIX  # [not win]
