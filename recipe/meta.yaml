@@ -1,46 +1,42 @@
+{% set name = "pyaudio" %}
 {% set version = "0.2.14" %}
 
 package:
-  name: pyaudio
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/P/PyAudio/PyAudio-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/PyAudio-{{ version }}.tar.gz
   sha256: 78dfff3879b4994d1f4fc6485646a57755c6ee3c19647a491f790a0895bd2f87
 
 build:
-  number: 2
-  skip: true  # [win or osx]
-  script:
-    - export PORTAUDIO_PATH=$PREFIX  # [not win]
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 3
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
   host:
     - python
     - pip
     - setuptools
-    - portaudio  # [not win]
-    - jack  # [linux]
+    - wheel
   run:
     - python
-    - setuptools
-    - portaudio  # [not win]
-    - jack  # [linux]
 
 test:
   imports:
     - pyaudio
   commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://people.csail.mit.edu/hubert/pyaudio/
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.txt
   summary: PortAudio Python Bindings.
 
 extra:
